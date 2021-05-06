@@ -9,8 +9,7 @@ module.exports = {
         filename: '[name].js',
         assetModuleFilename: 'images/[hash][ext][query]'
     },
-    mode: 'development',
-    watch: true,
+    mode: 'production',
     resolve: {
         extensions: ['.js']
     },

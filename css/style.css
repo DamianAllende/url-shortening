@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
-*{
+*, *:before, *:after{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 
-/*
+/* 
 8,16,24,32,40,48,56,64,72,80,88,96,104,112,120,128,136,144,
 152,160,168,176,184,192,200,208,216,224,232,240,248,256,264,
 272,280,288,296,304,312,320,328,336,344,352,360,368,376,384,392…
@@ -28,7 +28,7 @@
 }
 
 
-span, a, p, h1, h2, h3, h4, h5, h6, button{
+span, a, p, h1, h2, h3, h4, h5, h6, button, input, .url-message{
     font-family: 'Poppins', sans-serif;
 }
 
@@ -45,6 +45,7 @@ section{
     display: flex;
     height: 56px;
     justify-content: space-between;
+    margin-top: 32px;
     padding: 8px 0px;
     width: calc(100% - 48px);
 }
@@ -85,8 +86,6 @@ section{
     width: 100%;
 }
 
-
-
 .container-nav{
     background-color: var(--primary-violet);
     border-radius: 16px;
@@ -94,13 +93,18 @@ section{
     padding: 16px 0;
     position: absolute;
     opacity: 0;
-    top: 80px;
+    top: 120px;
     width: calc(100% - 48px); 
     z-index: 9;
 }
+@media only screen and (min-width : 769px){
+    .container-nav{
+        display: none;
+    }
+}
 
 .container-nav.vista{
-    top: 56px;
+    top: 80px;
     opacity: 1;
     z-index: 9;
 }
@@ -148,9 +152,14 @@ li{
     border: none;
     border-radius: 32px;
     color: var(--white);
+    cursor: pointer;
     font-weight: 700;
     font-size: 16px;
     padding: 8px 24px;
+    transition: 0.5s;
+}
+.nav-signup:hover{
+    background-color: #7fe2e2;
 }
 
 .nav-desktop{
@@ -182,19 +191,33 @@ li{
 
 .banner{
     height: auto;
+    padding-bottom: 128px;
     position: relative;
-    width: calc(100% - 48px); 
+    overflow: hidden;
+    width: 100%;
 }
 @media only screen and (min-width : 769px){
     .banner{
-        height: 400px;
+        min-height: 400px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
+        overflow: hidden;
+        width: calc(100% - 48px); 
     }
 }
 @media only screen and (min-width : 1000px){
     .banner{
+        height: auto;
+        padding-bottom: 104px;
+        width: 1000px;
+    }
+}
+@media only screen and (min-width : 1161px){
+    .banner{
+        height: auto;
+        overflow: visible;
+        padding-bottom: 104px;
         width: 1000px;
     }
 }
@@ -207,10 +230,9 @@ li{
 @media only screen and (min-width : 769px){
     .banner-image{
         align-items: center;
-    height: 400px;
-       display: flex;
-       justify-content: flex-end;
-
+        height: 400px;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
@@ -276,11 +298,40 @@ li{
     border: none;
     border-radius: 32px;
     color: var(--white);
+    cursor: pointer;
     font-weight: 700;
     font-size: 16px;
     padding: 8px 24px;
+    transition: 0.5s;
+
+}
+.button:hover{
+    background-color: #7fe2e2;
 }
 
 
 
 
+.lds-dual-ring {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
